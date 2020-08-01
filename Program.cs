@@ -44,7 +44,7 @@ namespace WebParser
                     htmlAtEnd = Console.ReadLine();
                     Console.WriteLine("Enter what to bypass: example (Parent Directory)");
                     bypassString = Console.ReadLine();
-                    Console.WriteLine("Files are at root (y or n)");
+                    Console.WriteLine("Files are at root: (y or n)");
                     filesAreAtRoot  = Console.ReadLine().ToLower() == "y";
                 }
                 Console.ForegroundColor = ConsoleColor.Green;
@@ -53,7 +53,7 @@ namespace WebParser
                 var res =  client.GetAsync(website + pathToParse).Result;
                 var html = res.Content.ReadAsStringAsync().Result;
                 var sections = html.Split(new string[] {htmlAtEnd}, StringSplitOptions.None).ToList();
-                Console.WriteLine("[INFO] Reading website done"); 
+                Console.WriteLine("[INFO] Reading website done."); 
                 foreach(var section in sections)
                 {
                     var downloadLink = website;               
